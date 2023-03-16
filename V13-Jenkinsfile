@@ -1,12 +1,12 @@
 pipeline {
     agent any
 	tools {
-	    maven "3.6.3"
+	    maven "3.9.0"
 	 	}
 	stages {
 	    stage('Git CheckOut') {
 		    steps {
-			   git branch: 'main', credentialsId: 'My private token login creds', url: 'https://github.com/logicopslab/WebAppForJenkins.git'
+			   git branch: 'main', url: 'https://github.com/icadqa2023/jenkinsauto.git'
 			}
 		}
         stage('Clean and Install') {
@@ -24,7 +24,7 @@ pipeline {
                rtServer (
                  id: "Artifactory",
                  url: 'http://localhost:8082/artifactory',
-                 username: 'ravish',
+                 username: 'admin',
                   password: 'YouPasswordHere',
                   bypassProxy: true,
                    timeout: 300
