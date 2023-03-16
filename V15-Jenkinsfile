@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	tools {
-	    maven "3.6.3"
+	    maven "3.9.0"
 	 	}
 	stages {
 	    stage('Git CheckOut') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('Code Quality'){
             steps {
-                    withSonarQubeEnv('SonarQube Server') {
+                    withSonarQubeEnv('Sonarqube') {
                 bat 'mvn sonar:sonar'
                 }
              }
